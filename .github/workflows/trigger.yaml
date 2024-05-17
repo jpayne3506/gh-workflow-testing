@@ -25,10 +25,14 @@ on:
 
 
 jobs:
-  test:
+  namedJob:
+    strategy:
+      matrix:
+        version: ${{ inputs.test }}
     runs-on: ubuntu-latest
     steps:
       - name: Setup
         shell: bash
         run: |
           echo "Cool outputs"
+          echo ${{ matrix.version }}
