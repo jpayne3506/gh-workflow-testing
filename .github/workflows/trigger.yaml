@@ -16,7 +16,7 @@ on:
       test3:
         description: 'breaking test'
         required: true
-        default: 'wow'
+        default: '4th option'
         type: choice
         options:
           - wow
