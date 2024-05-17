@@ -4,9 +4,9 @@ on:
   workflow_dispatch: # This allows us to queue from the UI
     inputs:
       test:
-        description: "Some string"
+        description: "Json array input"
         required: true
-        default: ''
+        default: '[]'
         type: string
       test2:
         description: 'Boolean Test'
@@ -28,7 +28,7 @@ jobs:
   namedJob:
     strategy:
       matrix:
-        version: ${{ inputs.test }}
+        version: ${{ fromJson(inputs.test) }}
     runs-on: ubuntu-latest
     steps:
       - name: Setup
